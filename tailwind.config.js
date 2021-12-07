@@ -1,5 +1,9 @@
 module.exports = {
-  purge: [],
+  mode: 'jit',
+  purge: [
+    './**/*.html',
+     './src/**/*.{js,jsx,ts,tsx,vue}',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -29,7 +33,7 @@ module.exports = {
           2: '#FAB005',
           3: '#FEF7E2',
         },
-        alert: {
+        error: {
           main: '#B81818',
           1: '#840F0F',
           2: '#9E0D0D',
@@ -40,8 +44,13 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['active'],
+      textColor: ['active', 'disabled'],
+      backgroundColor: ['active', 'disabled'],
+      ringColor: ['hover', 'active', 'disabled'],
+      cursor: ['disabled'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
